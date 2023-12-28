@@ -1,113 +1,181 @@
-import Image from 'next/image'
-
+"use client";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import ButtonSwitchTheme from "./components/themes";
+import { PiFolder, PiGithubLogo } from "react-icons/pi";
+import { FaGithub, FaHome } from "react-icons/fa";
+import gif from "@/app/assets/images/berserk.gif";
+import Link from "next/link";
+import Navigation from "./components/navigation";
 export default function Home() {
+  const { theme, setTheme } = useTheme();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
+    <div className="flex flex-col min-h-screen">
+      <main>
+        <Navigation />
+        {/* <nav className=" border-gray-200 border-b-2">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a
+              href="/"
+              className="flex items-center space-x-3 rtl:space-x-reverse"
+            >
+              <span className="self-center text-2xl font-semibold whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-red-500">
+                AIT CHIKHOUNE Amer
+              </span>
+            </a>
+            <button
+              data-collapse-toggle="navbar-default"
+              type="button"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-default"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+            <div
+              className="hidden w-full md:block md:w-auto"
+              id="navbar-default"
+            >
+              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                  <a
+                    href="#"
+                    className="flex align-center py-2 px-3 dark:text-gray-100 bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:dark:text-gray-100 md:dark:text-blue-500"
+                    aria-current="page"
+                  >
+                    <FaHome className="mx-1" size={20} />
+                    Accueil
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    href="/projets"
+                    className="flex align-center py-2 px-3 dark:text-gray-100 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:dark:text-gray-100 "
+                  >
+                    {" "}
+                    <PiFolder className="mx-1" size={20} />
+                    Parcours
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/parcours"
+                    className="flex align-center py-2 px-3 dark:text-gray-100 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:dark:text-gray-100 "
+                  >
+                    {" "}
+                    <PiFolder className="mx-1" size={20} />
+                    Parcours
+                  </Link>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="flex py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:dark:text-gray-100 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:dark:text-gray-100 md:dark:hover:bg-transparent"
+                  >
+                    <PiFolder className="mx-1" size={20} />
+                    CV
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    className="flex py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:dark:text-gray-100 md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:dark:text-gray-100 md:dark:hover:bg-transparent"
+                  >
+                    <PiFolder className="mx-1" size={20} />
+                    Contact
+                  </a>
+                </li>
+                <li>
+                  <ButtonSwitchTheme />
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav> */}
+
+        <div className="pt-32 flex justify-center">
+          <div className="relative w-40 h-40 rounded-full overflow-hidden">
             <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+              className="object-right"
+              src={gif}
+              alt="Avatar"
+              layout="fill"
+              objectFit="cover"
             />
-          </a>
+          </div>
         </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
+        <p className="text-center italic">
+          (Ce n&apos;est pas moi sur l&apos;image)
+        </p>
+        <div className="pt-20 0 flex justify-center items-center">
+          <section>
+            <span className="text-2xl py-4 border font-semibold uppercase text-gray-200 bg-black dark:bg-gray-200 dark:text-gray-900 p-2 px-16 border-slate-300 rounded-md">
+              A propos de moi
             </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
+          </section>
+        </div>
+        <section className="mt-[80px] mx-24">
+          {/* <h2 className="text-2xl mb-5 text-gray-900 dark:text-gray-100 font-semibold uppercase underline underline-offset-4">
+            A propos de moi
+          </h2> */}
+          <p className="md:text-xl lg:text-2xl">
+            J&apos;ai 19 ans et je suis en BTS Informatique SIO première année.
+            J&apos;aime bien développer des programmes et sites web en tout
+            genre. Je suis passionné par l&apos;informatique depuis mon plus
+            jeune âge. J&apos;ai commencé à développer des programmes en 2021
+            notamment en créant des scripts pour récupérer des données sur des
+            sites web. Et j&apos;ai donc par la suite appris des langages tels
+            que le GoLang/JavaScript/PHP...
           </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
+        </section>
+        {/* <section className="mt-[120px] ml-10 mr-5 ">
+          <h2 className="text-2xl mb-8 text-gray-900 dark:text-gray-100 font-semibold uppercase underline underline-offset-4">
+            Quelques projets...
           </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="border-2 rounded lg:ml-36">
+              <h3 className="p-2 font-semibold">Random-Hadith</h3>
+              <p className="p-2">
+                Permet de générer un hadith aléatoire à partir d&apos;une base
+                de données libre d&apos;accès.
+              </p>
+            </div>
+            <div className="border-2 rounded lg:mr-36">
+              <h3 className="p-2 font-semibold">Discord-Spotify-Lyrics</h3>
+              <p className="p-2">
+                Permet de synchroniser votre écoute spotify sur Discord en temps
+                réel.
+              </p>
+            </div>
+          </div>
+        </section> */}
+      </main>
+      <footer className="p-4 mt-auto">
+        {/* Contenu du footer */}
+        <div className="flex items-center align-center justify-center">
+          <span className="mr-2">
+            <FaGithub size={35} />
+          </span>
+          <p className="text-center">
+            © 2023 Portfolio AIT CHIKHOUNE Amer. All rights reserved.
           </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        </div>
+      </footer>
+    </div>
+  );
 }
