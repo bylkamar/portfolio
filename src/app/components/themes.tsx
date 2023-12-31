@@ -20,9 +20,9 @@ const ButtonSwitchTheme = () => {
         className="flex justify-end"
       >
         {theme === "dark" || theme === undefined ? (
-          <PiSunBold size={25} />
+          <PiSunBold size={20} />
         ) : (
-          <PiMoonFill size={25} />
+          <PiMoonFill size={20} />
         )}
       </button>
     </div>

@@ -1,16 +1,10 @@
 "use client";
-import Image from "next/image";
-import { useTheme } from "next-themes";
-import ButtonSwitchTheme from "@/app/components/themes";
-import { PiFolder } from "react-icons/pi";
-import { FaGithub, FaPlusCircle, FaHome } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import randh from "@/app/assets/images/random-hadith.png";
 import telegramrss from "@/app/assets/images/telegram-rss.png";
-import Link from "next/link";
 import ProjectCard from "../components/projectCard";
 import Navigation from "../components/navigation";
 export default function Home() {
-  const { theme, setTheme } = useTheme();
   return (
     <div className="flex flex-col h-screen justify-between">
       <main className="mb-auto">
@@ -52,17 +46,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer className="p-4 mt-auto">
-        {/* Contenu du footer */}
-        <div className="flex items-center align-center justify-center">
-          <span className="mr-2">
-            <FaGithub size={35} />
-          </span>
-          <p className="text-center">
-            © 2023 Portfolio AIT CHIKHOUNE Amer. All rights reserved.
-          </p>
-        </div>
-      </footer>
     </div>
   );
 }

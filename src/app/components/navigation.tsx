@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
-import { FaBars, FaHome, FaRegWindowMinimize } from "react-icons/fa";
+import { FaBars, FaBook, FaHome, FaRegWindowMinimize } from "react-icons/fa";
 import { PiFolder } from "react-icons/pi";
 import ButtonSwitchTheme from "./themes";
 
@@ -18,7 +18,7 @@ const Navigation = () => {
           <div>
             <div className="flex items-center justify-between py-3 md:py-5 md:block">
               <Link href="/">
-                <h2 className="text-2xl text-red-300 font-bold ">
+                <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">
                   AIT CHIKHOUNE Amer
                 </h2>
               </Link>
@@ -70,18 +70,9 @@ const Navigation = () => {
                     className="flex py-2 rounded-md p-0 text-gray-200 md:text-gray-900 dark:text-gray-900 dark:md:text-gray-200 hover:md:text-blue-700 hover:bg-gray-700 md:hover:bg-transparent dark:md:hover:bg-transparent dark:hover:bg-gray-100 md:border-0"
                   >
                     {" "}
-                    <PiFolder className="mx-1" size={20} />
+                    <FaBook className="mx-1" size={20} />
                     Parcours
                   </Link>
-                </li>
-                <li>
-                  <a
-                    href="#"
-                    className="flex py-2 rounded-md p-0 text-gray-200 md:text-gray-900 dark:text-gray-900 dark:md:text-gray-200 hover:md:text-blue-700 hover:bg-gray-700 md:hover:bg-transparent dark:md:hover:bg-transparent dark:hover:bg-gray-100 md:border-0"
-                  >
-                    <PiFolder className="mx-1" size={20} />
-                    CV
-                  </a>
                 </li>
                 <li>
                   <a
@@ -94,7 +85,7 @@ const Navigation = () => {
                 </li>
                 <li className="flex py-2 rounded-md p-0 text-gray-200 md:text-gray-900 dark:text-gray-900 dark:md:text-gray-200 hover:md:text-blue-700 hover:bg-gray-700 md:hover:bg-transparent dark:md:hover:bg-transparent dark:hover:bg-gray-100 md:border-0">
                   <ButtonSwitchTheme />
-                  <span className="ml">Switch theme</span>
+                  <span className="mx-1">Switch theme</span>
                 </li>
               </ul>
             </div>
