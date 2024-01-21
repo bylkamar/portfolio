@@ -4,7 +4,7 @@ import Navigation from "../components/navigation";
 import { IoMdSchool } from "react-icons/io";
 import { FaGithub } from "react-icons/fa";
 import Link from "next/link";
-const Page = () => {
+export default function Page() {
   return (
     <div>
       <Navigation />
@@ -172,6 +172,4 @@ const Page = () => {
       </div>
     </div>
   );
-};
-
-export default Page;
+}

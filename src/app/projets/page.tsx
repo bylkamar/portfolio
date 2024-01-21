@@ -4,7 +4,7 @@ import randh from "@/app/assets/images/random-hadith.png";
 import telegramrss from "@/app/assets/images/telegram-rss.png";
 import ProjectCard from "../components/projectCard";
 import Navigation from "../components/navigation";
-export default function Home() {
+export default function Page() {
   return (
     <div className="flex flex-col h-screen justify-between">
       <main className="mb-auto">
@@ -13,22 +13,6 @@ export default function Home() {
           <h2 className="text-2xl mb-8 text-gray-900 dark:text-gray-100 font-semibold uppercase underline underline-offset-4">
             Quelques projets personnelle...
           </h2>
-          {/* <div className="border-2 rounded mx-32">
-              <div className="relative mt-6 mx-10 mb-6 p-20 rounded-md group-hover:block group-hover:transition-opacity">
-                <Image
-                  src={randh}
-                  className="rounded-lg"
-                  alt="Random Hadith image preview"
-                  fill
-                  objectFit="fill"
-                />{" "}
-              </div>
-              <h3 className="m-2 font-semibold">Random-Hadith</h3> */}
-          {/* <p className="p-2">
-                Permet de générer un hadith aléatoire à partir d&apos;une base
-                de données libre d&apos;accès.
-              </p> */}
-          {/* </div> */}
           <div className="container m-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             <ProjectCard
               image={randh.src}

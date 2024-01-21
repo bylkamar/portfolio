@@ -75,13 +75,14 @@ const Navigation = () => {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/contact"
                     className="flex py-2 rounded-md p-0 text-gray-200 md:text-gray-900 dark:text-gray-900 dark:md:text-gray-200 hover:md:text-blue-700 hover:bg-gray-700 md:hover:bg-transparent dark:md:hover:bg-transparent dark:hover:bg-gray-100 md:border-0"
                   >
+                    {" "}
                     <PiFolder className="mx-1" size={20} />
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li className="flex py-2 rounded-md p-0 text-gray-200 md:text-gray-900 dark:text-gray-900 dark:md:text-gray-200 hover:md:text-blue-700 hover:bg-gray-700 md:hover:bg-transparent dark:md:hover:bg-transparent dark:hover:bg-gray-100 md:border-0">
                   <ButtonSwitchTheme />
