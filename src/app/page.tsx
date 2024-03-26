@@ -29,10 +29,8 @@ export default function Home() {
             </span>
           </section>
         </div>
+        {/* A propos de moi */}
         <section className="mt-[80px] mx-24">
-          {/* <h2 className="text-2xl mb-5 text-gray-900 dark:text-gray-100 font-semibold uppercase underline underline-offset-4">
-            A propos de moi
-          </h2> */}
           <p className="md:text-xl lg:text-2xl">
             J&apos;ai 19 ans et je suis en BTS Informatique SIO première année.
             J&apos;aime bien développer des programmes et sites web en tout
@@ -42,6 +40,78 @@ export default function Home() {
             sites web. Et j&apos;ai donc par la suite appris des langages tels
             que le GoLang/JavaScript/PHP...
           </p>
+          <div className="flex justify-center mt-3">
+            <button className="text-xl px-4 p-2 border font-semibold border-slate-950 uppercase bg-black hover:bg-white hover:text-gray-900 rounded-md">
+              Télécharger mon CV
+            </button>
+          </div>
+        </section>
+        {/* Compétences */}
+        <section className="mt-[80px] mx-24">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-rows-1 gap-3 content-center">
+            <div className="border font-semibold uppercase text-gray-200 bg-black dark:bg-gray-200 dark:text-gray-900 border-slate-300 rounded">
+              <div className="border-b border-black">
+                <h3 className="ml-2 text-center text-xl">Programmation</h3>
+              </div>
+              <div>
+                <ul className="ml-2">
+                  <li>- GoLANG</li>
+                  <li>- JavaScript</li>
+                  <li>- PHP</li>
+                  <li>- Python</li>
+                  <li>- Java</li>
+                  <li>- Bootstrap</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border font-semibold uppercase text-gray-200 bg-black dark:bg-gray-200 dark:text-gray-900 border-slate-300 rounded">
+              <div className="border-b border-black">
+                <h3 className="ml-2 text-center text-xl">BDD</h3>
+              </div>
+              <div>
+                <ul className="ml-2">
+                  <li>- SQL</li>
+                  <li>- PhpMyAdmin</li>
+                  <li>- WinDesign</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border font-semibold uppercase text-gray-200 bg-black dark:bg-gray-200 dark:text-gray-900 border-slate-300 rounded">
+              <div className="border-b border-black">
+                <h3 className="ml-2 text-center text-xl">Sys. Réseau</h3>
+              </div>
+              <div>
+                <ul className="ml-2">
+                  <li>- Cisco</li>
+                  <li>- Active Directory</li>
+                  <li>- Windows Server</li>
+                  <li>- Linux</li>
+                  <li>- Hyper-V</li>
+                  <li>- GLPI/OCS</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="border font-semibold uppercase text-gray-200 bg-black dark:bg-gray-200 dark:text-gray-900 border-slate-300 rounded">
+              <div className="border-b border-black">
+                <h3 className="ml-2 text-center text-xl">Savoir Faire</h3>
+              </div>
+              <div>
+                <ul className="ml-2">
+                  <li>- Sérieux</li>
+                  <li>- Autonome</li>
+                  <li>- Travail d&apos;équipe</li>
+                  <li>- Gestion de stresse</li>
+                  <li>- Résolution de problèmes</li>
+                  <li>- Apprentissage rapide</li>
+                  <li>- Créativité</li>
+                  <li>- Curiosité technique</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>

@@ -21,7 +21,12 @@ export default function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning lang="en">
-      <head />
+      <head>
+        <meta
+          name="google-site-verification"
+          content="aMqTQAdrBgd-7ppXZAizbslobsSxIJiq4oIJOY1iovc"
+        />
+      </head>
       <body className={`${inter.className} `}>
         <Providers>{children}</Providers>
         <Footer />
