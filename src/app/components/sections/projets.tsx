@@ -22,7 +22,6 @@ const Projects: React.FC = () => {
         <div className="bg-[#F6F8FF] dark:bg-[#242F42] rounded-md p-4">
           <div className="rounded-lg">
             <Image
-              unoptimized
               src={"https://i.imgur.com/V8viUZf.png"}
               alt="projet par it chikhoune amer"
               className="rounded-lg h-[180px] "
@@ -89,7 +88,6 @@ const Projects: React.FC = () => {
         <div className="bg-[#F6F8FF] dark:bg-[#242F42] rounded-md p-4">
           <div className="rounded-lg">
             <Image
-              unoptimized
               src={hpassion}
               alt="projet h-passion réalisé pour un client"
               className="rounded-lg h-[180px] w-full"

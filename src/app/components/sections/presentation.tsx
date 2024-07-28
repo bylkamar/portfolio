@@ -102,7 +102,6 @@ const Presentation: React.FC = () => {
           <Transition show={true} appear={true} {...BaseTransition}>
             <div className="rounded-full w-48 h-48 flex justify-end overflow-hidden m-auto">
               <Image
-                unoptimized
                 src={mecbg}
                 width={999999}
                 height={99999}

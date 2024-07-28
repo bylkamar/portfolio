@@ -15,7 +15,7 @@ const Navbar: React.FC = () => {
     <nav className="fixed top-0 left-0 w-full text-white p-4 bg-[#E0E3FF] dark:bg-[#1F1F1F]">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex justify-center items-center">
-          <Image unoptimized src={logo} alt="Logo" width={30} height={30} />
+          <Image src={logo} alt="Logo" width={30} height={30} />
           <div className="text-xl font-bold text-gray-700 dark:text-white ml-8">
             AIT CHIKHOUNE Amer
           </div>

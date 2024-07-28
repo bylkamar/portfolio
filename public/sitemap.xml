@@ -1,8 +1,10 @@
-  <xml version="1.0" encoding="UTF-8">
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-       <loc>http://www.aitchikhoune-amer.fr/</loc>
-       <lastmod>2024-07-23</lastmod>
-     </url>
-   </urlset>
-   </xml>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.aitchikhoune-amer.fr/</loc>
+    <lastmod>2022-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Add more URLs here -->
+</urlset>
