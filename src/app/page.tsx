@@ -6,6 +6,8 @@ import Presentation from "./components/sections/presentation";
 import Contact from "./components/sections/contact";
 import Parcours from "./components/sections/parcours";
 import Navbar from "./components/navbar/navbar";
+import Experience from "./components/sections/experiences";
+
 const BaseTransition = {
   enter: "transition ease-out duration-700",
   enterFrom: "transform -translate-y-full opacity-0",
@@ -23,6 +25,8 @@ export default function Home() {
       <Skill />
       <Projects />
       <Parcours />
+      <Experience />
+
       <Contact />
       <section id="footer"></section>
     </main>

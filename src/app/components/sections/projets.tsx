@@ -117,26 +117,17 @@ const Projects: React.FC = () => {
                 className="max-w-lg space-y-4 border bg-white p-12 rounded-lg text-gray-700 duration-300 ease-out data-[closed]:scale-95 data-[closed]:opacity-0"
               >
                 <DialogTitle className="font-bold text-center">
-                  Random-Hadith
+                  h-passion
                 </DialogTitle>
                 <p>
-                  Vous sort un hadith{" "}
-                  <span className="italic">(histoire ou un enseignement) </span>
-                  depuis de multiples collections avec son degré
-                  d&lsquo;authenticité et sa traduction arabe/anglais.
+                  Site vitrine Wordpress comprenant l&apos;affichage de
+                  multiples offres (henné,peinture sur toile,certificat
+                  d&apos;amitié...) pour une cliente{" "}
                 </p>
-                <span className="font-bold">Framework</span>
-                <ul className="list-disc">
-                  <li>React</li>
-                  <li>Tailwind CSS</li>
-                </ul>
                 <div className="flex gap-4">
-                  <Link
-                    href="https://github.com/bylkamar/random-hadith"
-                    target="blank"
-                  >
+                  <Link href="https://h-passion.fr/" target="blank">
                     <button className="bg-[#5263FF] duration-300 hover:scale-110 p-2 px-3 rounded-full text-white font-bold">
-                      Voir le GitHub
+                      Voir le site web
                     </button>
                   </Link>
                   <button
