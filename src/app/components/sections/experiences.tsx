@@ -28,6 +28,42 @@ const Experiences: React.FC = () => {
       </h2>{" "}
       <Disclosure as="div" className="w-full max-w-md mx-auto">
         <DisclosureButton className="w-full border-b pb-2 text-left flex justify-between">
+          <h2>Stage Association WYP Work For Youth Progres - 2025</h2>
+          <div className="size-5 fill-white/60 group-data-[hover]:fill-white/50 group-data-[open]:rotate-180">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+              />
+            </svg>
+          </div>
+        </DisclosureButton>
+        <div className="overflow-hidden py-2">
+          <DisclosurePanel
+            transition
+            className="origin-top transition duration-200 ease-out data-[closed]:-translate-y-6 data-[closed]:opacity-0"
+          >
+            <ul className="pl-4">
+              <li className="text-gray-600 dark:text-gray-300">
+                - Conception Site Web
+              </li>
+              <li className="text-gray-600 dark:text-gray-300">
+                - Création de documentation technique
+              </li>
+            </ul>
+          </DisclosurePanel>
+        </div>
+      </Disclosure>
+      <Disclosure as="div" className="w-full max-w-md mx-auto">
+        <DisclosureButton className="w-full border-b pb-2 text-left flex justify-between">
           <h2>Stage Association KAÏROS BELLECROIX - 2024</h2>
           <div className="size-5 fill-white/60 group-data-[hover]:fill-white/50 group-data-[open]:rotate-180">
             <svg

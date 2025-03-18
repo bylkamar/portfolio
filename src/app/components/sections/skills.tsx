@@ -78,7 +78,7 @@ const Skill: React.FC = () => {
                     <div className="flex flex-col items-center">
                       <span className="font-bold dark:text-white">Next.js</span>
                       <span className="font-medium dark:text-gray-400">
-                        Débutant
+                        En apprentissage
                       </span>
                     </div>
                   </TransitionChild>
@@ -94,7 +94,7 @@ const Skill: React.FC = () => {
                     <div className="flex flex-col items-center">
                       <span className="font-bold dark:text-white">php</span>
                       <span className="font-medium dark:text-gray-400">
-                        Débutant
+                        Bases solides
                       </span>
                     </div>
                   </TransitionChild>
@@ -110,7 +110,7 @@ const Skill: React.FC = () => {
                     <div className="flex flex-col items-center">
                       <span className="font-bold dark:text-white">SQL</span>
                       <span className="font-medium dark:text-gray-400">
-                        Débutant
+                        Bases solides
                       </span>
                     </div>
                   </TransitionChild>
@@ -131,7 +131,7 @@ const Skill: React.FC = () => {
                         JavaScript
                       </span>
                       <span className="font-medium dark:text-gray-400">
-                        Intermédiaire
+                        Bases solides
                       </span>
                     </div>
                   </TransitionChild>
@@ -152,7 +152,7 @@ const Skill: React.FC = () => {
                         Tailwind
                       </span>
                       <span className="font-medium dark:text-gray-400">
-                        Débutant
+                        Bases solides
                       </span>
                     </div>
                   </TransitionChild>
@@ -170,7 +170,7 @@ const Skill: React.FC = () => {
                         WordPress
                       </span>
                       <span className="font-medium dark:text-gray-400">
-                        Débutant
+                        Bases solides
                       </span>
                     </div>
                   </TransitionChild>
