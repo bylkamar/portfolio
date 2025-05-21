@@ -7,6 +7,7 @@ import Contact from "./components/sections/contact";
 import Parcours from "./components/sections/parcours";
 import Navbar from "./components/navbar/navbar";
 import Experience from "./components/sections/experiences";
+import VeilleInfo from "./components/sections/veille";
 
 const BaseTransition = {
   enter: "transition ease-out duration-700",
@@ -26,7 +27,7 @@ export default function Home() {
       <Projects />
       <Parcours />
       <Experience />
-
+      <VeilleInfo />
       <Contact />
       <section id="footer"></section>
     </main>

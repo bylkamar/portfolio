@@ -1,26 +1,39 @@
-export async function POST(request: Request) {
-  const { text } = await request.json();
-  const botToken = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN;
-  const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID;
+import nodemailer from "nodemailer";
+import { NextRequest, NextResponse } from "next/server";
 
+export async function POST(req: NextRequest) {
   try {
-    const response = await fetch(
-      `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${text}`,
-      {
-        // Remplacez par l'URL de votre API externe
-        method: "GET",
-        next: { revalidate: 10 },
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-
-    if (response.ok) {
-      return Response.json({ message: "Message envoyé avec succès!" });
-    } else {
-      return Response.error();
+    const { text } = await req.json();
+    if (!text) {
+      return NextResponse.json(
+        { message: "Missing required fields" },
+        { status: 400 }
+      );
     }
-  } catch (error) {}
-  return Response.error();
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // TLS
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASSWORD,
+      },
+    });
+    await transporter.sendMail({
+      from: `"PORTFOLIO - Nouveau message" <${process.env.GMAIL_USER}>`,
+      to: "amer.aitchikhoune@gmail.com",
+      subject: "Nouveau message",
+      text,
+    });
+    return NextResponse.json(
+      { message: "Email sent successfully!" },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Error sending email:", error);
+    return NextResponse.json(
+      { message: "Failed to send email", error },
+      { status: 500 }
+    );
+  }
 }

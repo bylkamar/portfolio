@@ -287,6 +287,14 @@ const Projects: React.FC = () => {
         <h2 className="text-center text-gray-700 dark:text-white font-bold mb-8 text-2xl">
           Tableau E5
         </h2>
+        <Link
+          className="text-xl font-bold"
+          href={
+            "https://docs.google.com/spreadsheets/d/e/2PACX-1vRkfp9rJk70lGoamyPpN0pOi2oY65rSop_KvYpuKeffhojJkMT83SVH3TitBUvozw/pubhtml?gid=858567107&amp;single=true&amp;widget=true&amp;headers=false"
+          }
+        >
+          Lien ver le tableau Drive
+        </Link>
         <iframe
           src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRkfp9rJk70lGoamyPpN0pOi2oY65rSop_KvYpuKeffhojJkMT83SVH3TitBUvozw/pubhtml?gid=858567107&amp;single=true&amp;widget=true&amp;headers=false"
           className="w-full h-[500px] rounded-lg"

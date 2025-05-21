@@ -167,7 +167,7 @@ const Presentation: React.FC = () => {
             </div>
 
             <p className="text-gray-700 dark:text-white lg:ml-8 mt-4">
-              J&apos;ai actuellement 19 ans et je prépare un BTS Services
+              J&apos;ai actuellement 20 ans et je prépare un BTS Services
               Informatiques aux Organisations (SIO) au Lycée Robert SCHUMAN à
               Metz. J&apos;aime bien l&apos;nformatique depuis mon plus jeune
               âge notamment la sécurité informatique auquel je souhaite me

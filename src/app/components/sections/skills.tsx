@@ -2,7 +2,7 @@
 
 import { Transition, TransitionChild } from "@headlessui/react";
 import { useState, useEffect, useRef } from "react";
-import { FaWordpress } from "react-icons/fa";
+import { FaCode, FaJava, FaWordpress } from "react-icons/fa";
 import {
   RiNextjsFill,
   RiJavascriptFill,
@@ -168,6 +168,39 @@ const Skill: React.FC = () => {
                     <div className="flex flex-col items-center">
                       <span className="font-bold dark:text-white">
                         WordPress
+                      </span>
+                      <span className="font-medium dark:text-gray-400">
+                        Bases solides
+                      </span>
+                    </div>
+                  </TransitionChild>
+                </div>
+
+                <div className="text-gray-700 flex flex-col items-center mt-2">
+                  <TransitionChild {...BaseRotateTransition}>
+                    <div className="transform">
+                      <FaJava className="text-[#5263FF]" size={"30"} />
+                    </div>
+                  </TransitionChild>
+                  <TransitionChild appear={true} {...BaseTransition}>
+                    <div className="flex flex-col items-center">
+                      <span className="font-bold dark:text-white">Java</span>
+                      <span className="font-medium dark:text-gray-400">
+                        Bases solides
+                      </span>
+                    </div>
+                  </TransitionChild>
+                </div>
+                <div className="text-gray-700 flex flex-col items-center mt-2">
+                  <TransitionChild {...BaseRotateTransition}>
+                    <div className="transform">
+                      <FaCode className="text-[#5263FF]" size={"30"} />
+                    </div>
+                  </TransitionChild>
+                  <TransitionChild appear={true} {...BaseTransition}>
+                    <div className="flex flex-col items-center">
+                      <span className="font-bold dark:text-white">
+                        Flutter/Dart
                       </span>
                       <span className="font-medium dark:text-gray-400">
                         Bases solides
