@@ -73,7 +73,7 @@ const Presentation: React.FC = () => {
                 </Link>
               </TransitionChild>
               <TransitionChild {...BaseTransition}>
-                <Link href="#" onClick={scrollToSection}>
+                <div onClick={scrollToSection}>
                   <button className="bg-[#5263FF] hover:scale-110 hover:bg-opacity-90 text-white p-2 rounded-full flex justify-center duration-300">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,7 @@ const Presentation: React.FC = () => {
                       />
                     </svg>
                   </button>
-                </Link>
+                </div>
               </TransitionChild>
             </div>
           </div>

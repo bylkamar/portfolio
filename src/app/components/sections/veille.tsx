@@ -9,9 +9,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import hpassion from "../../../../public/image/hpassion.jpg";
 import sio from "../../../../public/image/sio.webp";
-import cocciflore from "../../../../public/image/cocciflore.jpg";
 
 const categoryColors: { [key: string]: string } = {
   devmobile: "#FAA275", // bleu clair
@@ -20,11 +18,12 @@ const categoryColors: { [key: string]: string } = {
 };
 
 const projectsData = [
+  // 🔵 DEVMOBILE
   {
-    id: 16,
-    title: "Tendances du développement mobile en 2025",
+    id: 101,
+    title: "Les 8 tendances du développement d'application mobile en 2025",
     description:
-      "Le développement mobile en 2025 est marqué par l'essor des technologies hybrides comme Flutter et React Native, l'intégration de l'IA pour des expériences utilisateur personnalisées, et l'utilisation de la 5G pour des applications en temps réel. La sécurité des applications est également renforcée avec des authentifications biométriques et des API sécurisées.",
+      "Cet article présente les grandes évolutions prévues dans le développement mobile : montée en puissance des applications hybrides (Flutter, React Native), intégration de l’IA pour l'expérience utilisateur, développement renforcé grâce à la 5G, et respect des nouvelles normes d’accessibilité et de sécurité. Il met en lumière la nécessité d’un développement plus agile, plus sécurisé et plus responsable.",
     imageUrl: sio,
     source:
       "https://devtitechnologie.com/blog/les-8-tendances-du-developpement-d-application-mobile-en-2025",
@@ -33,23 +32,73 @@ const projectsData = [
     pro: false,
   },
   {
-    id: 17,
-    title:
-      "L'avenir du DevOps : tendances clés et meilleures pratiques en 2025",
+    id: 102,
+    title: "Le marché des applications mobiles : une année record en 2025",
     description:
-      "En 2025, le DevOps évolue avec l'intégration de l'IA et du machine learning pour automatiser les workflows, l'adoption de GitOps et de l'infrastructure as code pour une gestion efficace des déploiements, et la mise en œuvre de DevSecOps pour intégrer la sécurité dès les premières étapes du développement.",
+      "Avec plus de 250 milliards de téléchargements prévus, les applications mobiles connaissent une croissance sans précédent. L’article analyse les raisons de cette explosion : augmentation du temps passé sur mobile, généralisation de l’usage des apps dans les services publics, la santé, l’éducation et la consommation. Il aborde aussi les enjeux pour les développeurs et les entreprises en termes de performance, d’UX et de rentabilité.",
     imageUrl: sio,
     source:
-      "https://devops.com/the-future-of-devops-key-trends-innovations-and-best-practices-in-2025/",
-    sourceName: "DevOps.com",
+      "https://apptree.fr/le-marche-des-applications-mobiles-2025-une-annee-record-avec-250-milliards-de-telechargements-prevus/",
+    sourceName: "Apptree",
+    category: "devmobile",
+    pro: false,
+  },
+  {
+    id: 103,
+    title: "Applications les plus téléchargées en 2025",
+    description:
+      "L’article revient sur les tendances de consommation mobile en 2025 : Instagram, TikTok, WhatsApp restent leaders, mais on observe l’émergence d’apps intégrant de l’intelligence artificielle générative. Le mobile devient aussi une plateforme de plus en plus tournée vers la productivité personnelle et l’assistance intelligente, transformant les usages traditionnels.",
+    imageUrl: sio,
+    source:
+      "https://www.blogdumoderateur.com/mobile-2025-applications-plus-telechargees/",
+    sourceName: "BDM",
+    category: "devmobile",
+    pro: false,
+  },
+
+  // 🟢 DEVOPS
+  {
+    id: 104,
+    title: "DevOps en 2025 : un rôle transformé par l'IA et le cloud",
+    description:
+      "Cet article décrit comment l’automatisation, l’intelligence artificielle et l’utilisation massive du cloud modifient les pratiques DevOps. Il met en avant des outils comme GitOps, des pratiques comme le DevSecOps, et les nouveaux profils recherchés dans le domaine. Il insiste sur la nécessité d’une collaboration renforcée entre développeurs et ops pour sécuriser, déployer et maintenir plus vite et mieux.",
+    imageUrl: sio,
+    source:
+      "https://www.free-work.com/fr/tech-it/blog/actualites-informatiques/le-devops-en-2025-comment-ce-role-evolue-t-il",
+    sourceName: "Free-Work",
     category: "devops",
     pro: false,
   },
   {
-    id: 18,
-    title: "Développement web en 2025 : tendances et innovations",
+    id: 105,
+    title: "Les compétences DevOps indispensables en 2025",
     description:
-      "Le développement web en 2025 est influencé par l'intégration de l'IA pour personnaliser l'expérience utilisateur, l'adoption du Web3 pour des applications décentralisées, et l'utilisation de frameworks modernes comme React, Angular et Vue.js. L'accessibilité et la cybersécurité restent des priorités majeures.",
+      "Les profils DevOps doivent en 2025 maîtriser des domaines variés : conteneurisation avec Docker/Kubernetes, automatisation des tests, sécurité (DevSecOps), intégration et déploiement continu (CI/CD), et surtout être capable de collaborer avec toutes les équipes projet. Le tout avec une bonne culture de la supervision et de l’observabilité.",
+    imageUrl: sio,
+    source:
+      "https://www.free-work.com/fr/tech-it/blog/actualites-informatiques/les-competences-devops-indispensables-en-2025",
+    sourceName: "Free-Work",
+    category: "devops",
+    pro: false,
+  },
+  {
+    id: 106,
+    title: "Les dernières tendances DevOps et les statistiques essentielles",
+    description:
+      "En analysant les pratiques les plus répandues chez les entreprises en 2025, l’article montre l’importance de l’observabilité, de l’infrastructure as code, de la conteneurisation et de l’IA dans les pratiques DevOps. Il intègre aussi des statistiques clés sur les taux d’adoption de GitOps, le coût moyen d’une défaillance système, et les bénéfices obtenus avec les outils d’automatisation avancés.",
+    imageUrl: sio,
+    source: "https://geekflare.com/fr/devops-latest-trends/",
+    sourceName: "Geekflare",
+    category: "devops",
+    pro: false,
+  },
+
+  // 🟣 DEVWEB
+  {
+    id: 107,
+    title: "Développement Web en 2025 : tendances et innovation",
+    description:
+      "L’article met en avant les évolutions du développement web, notamment l’intégration de l’IA dans les interfaces, la généralisation du Web3, l’usage des microservices, la sécurité by design, et les exigences en accessibilité. Il insiste aussi sur l’importance de créer des expériences utilisateurs fluides sur tous types d’écrans.",
     imageUrl: sio,
     source:
       "https://ipanema-consulting.com/actualites/marketing/tendances-et-innovations-du-developpement-web-en-2025/",
@@ -58,37 +107,26 @@ const projectsData = [
     pro: false,
   },
   {
-    id: 19,
-    title: "Les 8 tendances du développement d'application mobile en 2025",
+    id: 108,
+    title: "Le marché du développement web : 8 chiffres pour 2025",
     description:
-      "En 2025, le développement d'applications mobiles est marqué par l'intégration de l'IA pour des expériences utilisateur personnalisées, l'essor des applications à la demande, l'utilisation de la 5G pour des performances accrues, et l'adoption de technologies comme Flutter et React Native pour un développement multiplateforme efficace.",
+      "L’article expose les données clés du marché en 2025 : le mobile-first est adopté par 80 % des sites, 60 % utilisent React ou Angular, et les entreprises mettent l’accent sur les performances, la sécurité et l’éco-conception. Le web devient un levier économique central pour les entreprises numériques.",
     imageUrl: sio,
     source:
-      "https://www.codeur.com/blog/tendances-developpement-application-mobile/",
-    sourceName: "Codeur.com",
-    category: "devmobile",
+      "https://modelesdebusinessplan.com/blogs/infos/marche-developpement-chiffres",
+    sourceName: "Modèles de Business Plan",
+    category: "devweb",
     pro: false,
   },
   {
-    id: 20,
-    title: "Les tendances DevOps à suivre en 2025",
+    id: 109,
+    title: "Développeur Java : quels défis en 2025 ?",
     description:
-      "Les tendances DevOps en 2025 incluent l'intégration de l'IA pour automatiser les processus, l'adoption de DevSecOps pour intégrer la sécurité dès le début du cycle de développement, et l'utilisation de GitOps pour une gestion efficace des infrastructures. L'observabilité cloud-native et les déploiements multi-cloud deviennent également des pratiques courantes.",
+      "L’article met en lumière les enjeux spécifiques aux développeurs Java, toujours très demandés en 2025 : adaptation aux évolutions des frameworks, à la montée en puissance des microservices, à la sécurisation des APIs, et à l’amélioration de l’expérience utilisateur côté front. Le profil du dev Java doit évoluer sans cesse.",
     imageUrl: sio,
     source:
-      "https://www.h2kinfosys.com/blog/devops-trends-and-innovations-explained-in-2025/",
-    sourceName: "H2K Infosys",
-    category: "devops",
-    pro: false,
-  },
-  {
-    id: 21,
-    title: "Les 11 tendances du développement web en 2025 avec l'IA",
-    description:
-      "En 2025, le développement web est transformé par l'IA, avec des processus de développement automatisés, l'essor des plateformes low-code et no-code, et l'utilisation de l'IA pour améliorer l'expérience utilisateur. L'accessibilité numérique et la cybersécurité restent des priorités, avec des interfaces plus intuitives et inclusives.",
-    imageUrl: sio,
-    source: "https://esokia.com/fr/blog/developpement-web-en-2025-ia",
-    sourceName: "Esokia",
+      "https://carriere.itlinkgroupe.com/fr/blog/defis-developpeur-java-2025",
+    sourceName: "ITLink",
     category: "devweb",
     pro: false,
   },
