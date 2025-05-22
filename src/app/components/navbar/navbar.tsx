@@ -1,11 +1,17 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoMoon, IoSunny } from "react-icons/io5";
 import { useTheme } from "next-themes";
 import logo from "../../../../public/image/logo.png";
 import Image from "next/image";
+
 const Navbar: React.FC = () => {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const switchTheme = () => {
     setTheme(theme === "light" ? "dark" : "light");
@@ -23,7 +29,7 @@ const Navbar: React.FC = () => {
         <ul className="flex space-x-4">
           <li>
             <button onClick={() => switchTheme()}>
-              {theme === "light" ? (
+              {mounted && theme === "light" ? (
                 <IoSunny size={24} className="text-gray-500" />
               ) : (
                 <IoMoon size={24} className="text-white" />

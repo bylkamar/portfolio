@@ -10,6 +10,7 @@ import {
 } from "react-icons/ri";
 import { SiPhp } from "react-icons/si";
 import { PiFileSql } from "react-icons/pi";
+
 const BaseTransition = {
   enter: "transition ease-out duration-700",
   enterFrom: "transform -translate-y-full opacity-0",
@@ -27,31 +28,23 @@ const BaseRotateTransition = {
   leaveFrom: "opacity-100 rotate-0 scale-100",
   leaveTo: "opacity-0 scale-95",
 };
+
 const Skill: React.FC = () => {
-  // Permet de voir si l'élément est visible
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      {
-        threshold: 0.1, // Adjust this value to control when the element is considered visible
-      }
+      ([entry]) => setIsVisible(entry.isIntersecting),
+      { threshold: 0.1 }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
+    if (ref.current) observer.observe(ref.current);
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      if (ref.current) observer.unobserve(ref.current);
     };
   }, []);
+
   return (
     <section id="competences" className="mb-[400px]">
       <h1
@@ -61,153 +54,78 @@ const Skill: React.FC = () => {
         Mes compétences
       </h1>
       <div className="mx-12 md:mx-64 lg:mx-[25%]">
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           <div className="bg-[#F6F8FF] dark:bg-[#242F42] dark:text-white rounded-md p-4">
             <h2 className="text-gray-700 dark:text-white font-bold text-xl mb-3">
               Développement Web
             </h2>
             <div className="grid grid-cols-2">
-              <Transition show={isVisible}>
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <RiNextjsFill className="text-[#5263FF]" size={"30"} />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">Next.js</span>
-                      <span className="font-medium dark:text-gray-400">
-                        En apprentissage
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
-
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <SiPhp className="text-[#5263FF]" size={"30"} />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">php</span>
-                      <span className="font-medium dark:text-gray-400">
-                        Bases solides
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
-
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <PiFileSql className="text-[#5263FF]" size={"30"} />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">SQL</span>
-                      <span className="font-medium dark:text-gray-400">
-                        Bases solides
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
-
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <RiJavascriptFill
-                        className="text-[#5263FF]"
-                        size={"30"}
-                      />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">
-                        JavaScript
-                      </span>
-                      <span className="font-medium dark:text-gray-400">
-                        Bases solides
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
-
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <RiTailwindCssFill
-                        className="text-[#5263FF]"
-                        size={"30"}
-                      />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">
-                        Tailwind
-                      </span>
-                      <span className="font-medium dark:text-gray-400">
-                        Bases solides
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
-
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <FaWordpress className="text-[#5263FF]" size={"30"} />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">
-                        WordPress
-                      </span>
-                      <span className="font-medium dark:text-gray-400">
-                        Bases solides
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
-
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <FaJava className="text-[#5263FF]" size={"30"} />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">Java</span>
-                      <span className="font-medium dark:text-gray-400">
-                        Bases solides
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
-                <div className="text-gray-700 flex flex-col items-center mt-2">
-                  <TransitionChild {...BaseRotateTransition}>
-                    <div className="transform">
-                      <FaCode className="text-[#5263FF]" size={"30"} />
-                    </div>
-                  </TransitionChild>
-                  <TransitionChild appear={true} {...BaseTransition}>
-                    <div className="flex flex-col items-center">
-                      <span className="font-bold dark:text-white">
-                        Flutter/Dart
-                      </span>
-                      <span className="font-medium dark:text-gray-400">
-                        Bases solides
-                      </span>
-                    </div>
-                  </TransitionChild>
-                </div>
+              <Transition appear show={isVisible}>
+                {[
+                  {
+                    icon: <RiNextjsFill className="text-[#5263FF]" size={30} />,
+                    title: "Next.js",
+                    level: "En apprentissage",
+                  },
+                  {
+                    icon: <SiPhp className="text-[#5263FF]" size={30} />,
+                    title: "PHP",
+                    level: "Bases solides",
+                  },
+                  {
+                    icon: <PiFileSql className="text-[#5263FF]" size={30} />,
+                    title: "SQL",
+                    level: "Bases solides",
+                  },
+                  {
+                    icon: (
+                      <RiJavascriptFill className="text-[#5263FF]" size={30} />
+                    ),
+                    title: "JavaScript",
+                    level: "Bases solides",
+                  },
+                  {
+                    icon: (
+                      <RiTailwindCssFill className="text-[#5263FF]" size={30} />
+                    ),
+                    title: "Tailwind",
+                    level: "Bases solides",
+                  },
+                  {
+                    icon: <FaWordpress className="text-[#5263FF]" size={30} />,
+                    title: "WordPress",
+                    level: "Bases solides",
+                  },
+                  {
+                    icon: <FaJava className="text-[#5263FF]" size={30} />,
+                    title: "Java",
+                    level: "Bases solides",
+                  },
+                  {
+                    icon: <FaCode className="text-[#5263FF]" size={30} />,
+                    title: "Flutter/Dart",
+                    level: "Bases solides",
+                  },
+                ].map(({ icon, title, level }, index) => (
+                  <div
+                    key={index}
+                    className="text-gray-700 flex flex-col items-center mt-2"
+                  >
+                    <TransitionChild {...BaseRotateTransition}>
+                      <div className="transform">{icon}</div>
+                    </TransitionChild>
+                    <TransitionChild {...BaseTransition}>
+                      <div className="flex flex-col items-center">
+                        <span className="font-bold dark:text-white">
+                          {title}
+                        </span>
+                        <span className="font-medium dark:text-gray-400">
+                          {level}
+                        </span>
+                      </div>
+                    </TransitionChild>
+                  </div>
+                ))}
               </Transition>
             </div>
           </div>

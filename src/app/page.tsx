@@ -20,7 +20,7 @@ const BaseTransition = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen mt-48 ">
+    <main className="min-h-screen mt-48 " suppressHydrationWarning>
       <Navbar />
       <Presentation />
       <Skill />
