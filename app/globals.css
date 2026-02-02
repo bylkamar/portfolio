@@ -35,3 +35,9 @@ body {
   border-top-color: #171717;
   will-change: transform;
 }
+
+/* "Debug" purpose only  */
+* {
+  /* outline: 1px solid red !important; */
+  /* background: rgba(255, 0, 0, 0.1) !important; */
+}
