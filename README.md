@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# 📱 Portfolio V2 | Next.js & Framer Motion (in progress)
 
-First, run the development server:
+> A high-performance personal portfolio focused on immersive UX, dark aesthetics, and fluid motion design.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?style=flat&logo=vercel)](https://your-portfolio-link.com)
+[![Next.js](https://img.shields.io/badge/Built_with-Next.js-000000?style=flat&logo=next.js)](https://nextjs.org/)
+[![Framer Motion](https://img.shields.io/badge/Motion-Framer_Motion-FF0055?style=flat&logo=framer)](https://www.framer.com/motion/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔄 The Evolution: V1 to V2
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This version represents a complete architectural and visual overhaul. I transitioned from a traditional blue-themed layout to a **dark-centric, UX-optimized experience** to improve readability and visual impact.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Comparison
+* **Design:** From "Classic Blue" to a **Refined Dark Theme** for better eye comfort.
+* **Motion:** From static CSS to **Complex Orchestration** with Framer Motion.
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## ✨ Key Features & UX Improvements
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **🌑 Optimized Dark Mode:** A deep aesthetic focus on contrast and typography to reduce eye strain and highlight project visuals.
+* **🎭 Advanced Animations:** Powered by **Framer Motion**, including:
+    * *Seamless Page Transitions:* Smooth entry/exit animations between routes (only on main page).
+    * *Scroll-Triggered Reveals:* Elements fade and slide into view during navigation.
+    * *Micro-interactions:* Interactive hover effects on cards and buttons for tactile feedback.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠 Tech Stack
 
-## Deploy on Vercel
+| Category | Technology |
+| :--- | :--- |
+| **Framework** | Next.js (App Router) |
+| **Styling** | Tailwind CSS |
+| **Animations** | Framer Motion |
+| **Icons** | React-Icons |
+| **Deployment** | Vercel |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Installation & Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/bylkamar/portfolio.git](https://github.com/bylkamar/portfolio.git)

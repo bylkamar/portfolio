@@ -37,7 +37,7 @@ body {
 }
 
 /* "Debug" purpose only  */
-* {
-  /* outline: 1px solid red !important; */
-  /* background: rgba(255, 0, 0, 0.1) !important; */
-}
+/* * { */
+/* outline: 1px solid red !important; */
+/* background: rgba(255, 0, 0, 0.1) !important; */
+/* } */

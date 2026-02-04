@@ -1,5 +1,5 @@
 "use client"; // Important pour Framer Motion
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import Link from "next/link";
 import { ReactNode, useRef } from "react";
 
@@ -23,9 +23,13 @@ const gridVariants = {
 };
 
 // Animation de chaque carte (enfant)
-const cardVariants = {
+const cardVariants: Variants = {
     hidden: { opacity: 0, y: 20 }, // Départ : invisible et un peu plus bas
-    show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 50 } }, // Arrivée : visible et à sa place
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { type: "spring" as const, stiffness: 50 },
+    }, // Arrivée : visible et à sa place
 };
 
 
@@ -48,8 +52,9 @@ function Projects() {
     const ref = useRef(null);
     const isInViewDiscoverProject = useInView(ref, { once: true });
     return (
-        <div>
-            <div id="projects" className="w-full pt-10 flex justify-center">
+        <div className="mt-24" id="projects">
+            <h1 className="text-4xl">Projects</h1>
+            <div className="w-full pt-10 flex justify-center">
                 <motion.div
                     variants={gridVariants} // On lie à l'animation parent
                     initial="hidden" // État de départ
@@ -138,7 +143,7 @@ function Projects() {
                     transition={{ duration: 1.2 }}
                     className="text-2xl font-bold tracking-tighter cursor-pointer"
                 >
-                    <Link href="#" className="bg-linear-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Discover more of my projects </Link>
+                    <Link href="#" className="underline decoration-white underline-offset-8 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Discover more of my projects </Link>
                 </motion.h2>
             </div>
         </div>
