@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 const navItems = [
     { label: "Home", href: "#home" },
@@ -20,8 +20,10 @@ export function NavBar() {
             transition={{ duration: 0.4, ease: "easeOut" }}
             className="fixed top-4 left-0 right-0 z-50 px-4"
         >
-            <div className="mx-auto flex max-w-5xl items-center justify-between rounded-2xl border border-white/30 bg-white/15 px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-white/20 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/10 dark:border-white/15 dark:bg-white/5">
-                <a href="#home" className="text-sm font-semibold tracking-wide text-white">
+            {/* Le verre était calibré pour du texte blanc uniquement : illisible sur
+                le fond zinc-50 du mode clair. Chaque couleur a donc sa variante claire. */}
+            <div className="mx-auto flex max-w-5xl items-center justify-between rounded-2xl border border-zinc-200/70 bg-white/60 px-4 py-3 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-zinc-900/5 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/40 dark:border-white/15 dark:bg-white/5 dark:ring-white/20 dark:supports-[backdrop-filter]:bg-white/10">
+                <a href="#home" className="text-sm font-semibold tracking-wide text-zinc-900 dark:text-white">
                     bylkamar
                 </a>
 
@@ -30,7 +32,7 @@ export function NavBar() {
                         <a
                             key={item.href}
                             href={item.href}
-                            className="text-sm text-white/80 transition hover:text-white"
+                            className="text-sm text-zinc-600 transition hover:text-zinc-900 dark:text-white/80 dark:hover:text-white"
                         >
                             {item.label}
                         </a>
@@ -40,13 +42,13 @@ export function NavBar() {
                 <button
                     type="button"
                     aria-label="Toggle menu"
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white md:hidden"
+                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-zinc-300 text-zinc-900 dark:border-white/20 dark:text-white md:hidden"
                     onClick={() => setOpen((v) => !v)}
                 >
                     <span className="sr-only">Menu</span>
                     <div className="space-y-1">
-                        <span className="block h-0.5 w-5 bg-white" />
-                        <span className="block h-0.5 w-5 bg-white" />
+                        <span className="block h-0.5 w-5 bg-zinc-900 dark:bg-white" />
+                        <span className="block h-0.5 w-5 bg-zinc-900 dark:bg-white" />
                     </div>
                 </button>
             </div>
@@ -58,14 +60,14 @@ export function NavBar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.2 }}
-                        className="mx-auto mt-3 max-w-5xl rounded-2xl border border-white/30 bg-white/15 p-4 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-white/20 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/10 dark:border-white/15 dark:bg-white/5 md:hidden"
+                        className="mx-auto mt-3 max-w-5xl rounded-2xl border border-zinc-200/70 bg-white/60 p-4 shadow-[0_8px_30px_rgba(0,0,0,0.12)] ring-1 ring-zinc-900/5 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/40 dark:border-white/15 dark:bg-white/5 dark:ring-white/20 dark:supports-[backdrop-filter]:bg-white/10 md:hidden"
                     >
                         <div className="flex flex-col gap-3">
                             {navItems.map((item) => (
                                 <a
                                     key={item.href}
                                     href={item.href}
-                                    className="text-sm text-white/90"
+                                    className="text-sm text-zinc-700 dark:text-white/90"
                                     onClick={() => setOpen(false)}
                                 >
                                     {item.label}

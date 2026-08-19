@@ -22,7 +22,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Geist, chargé par next/font dans layout.tsx. Ne pas remettre de font-family
+     en dur ici : ça écraserait la police partout où `font-sans` n'est pas posé. */
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
 

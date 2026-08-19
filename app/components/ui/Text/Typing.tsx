@@ -1,7 +1,7 @@
 "use client"
 
 import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView } from 'motion/react';
 
 export function TypingEffect({ text = 'Typing Effect' }: { text: string }) {
     const ref = useRef(null);

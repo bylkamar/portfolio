@@ -1,7 +1,11 @@
 "use client"; // Important pour Framer Motion
-import { motion, useInView, Variants } from "framer-motion";
+import { motion, useInView, Variants } from "motion/react";
+import Image from "next/image";
 import Link from "next/link";
 import { ReactNode, useRef } from "react";
+
+import { landingProjects, type Project } from "../../data/projects";
+import { defaultLocale, t, type Locale } from "../../i18n/config";
 
 // --- 1. TYPES & VARIANTS ---
 
@@ -32,6 +36,13 @@ const cardVariants: Variants = {
     }, // Arrivée : visible et à sa place
 };
 
+// Forme du bento, par position dans la grille. La 1re cellule est la vitrine.
+const BENTO_SPANS = [
+    "md:col-span-2 md:row-span-2",
+    "md:col-span-1 md:row-span-1",
+    "md:col-span-1 md:row-span-1",
+    "md:col-span-3 md:row-span-1",
+];
 
 // --- 2. COMPOSANTS ---
 
@@ -48,9 +59,67 @@ const BentoCard = ({ children, className = "" }: BentoCardProps) => {
     );
 };
 
-function Projects() {
+// La grande cellule : visuel + description longue.
+const HeroCell = ({ project, locale }: { project: Project; locale: Locale }) => (
+    <>
+        {/* Background gradient animé au survol via CSS group-hover */}
+        <div className="absolute inset-0 bg-linear-to-br from-violet-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+        <div className="p-6 h-full flex flex-col justify-between relative z-10">
+            <div>
+                <div className="flex items-center justify-between gap-3">
+                    <h3 className="md:text-2xl text-xl font-bold text-zinc-800 dark:text-zinc-100">{project.title}</h3>
+                    <span className="bg-zinc-200 dark:bg-zinc-800 text-xs px-2 py-1 rounded-md border border-zinc-300 dark:border-zinc-700 shrink-0">
+                        {project.stack.slice(0, 2).join(" + ")}
+                    </span>
+                </div>
+                <p className="mt-2 text-zinc-600 dark:text-zinc-400">
+                    {t(project.description, locale)}
+                </p>
+            </div>
+
+            <div className="relative w-full h-full rounded-lg mt-4 overflow-hidden border border-dashed border-zinc-400 dark:border-zinc-700 bg-zinc-200 dark:bg-zinc-800">
+                {project.image ? (
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(min-width: 768px) 40vw, 100vw"
+                        className="object-cover"
+                    />
+                ) : (
+                    <div className="flex h-full w-full items-center justify-center text-sm text-zinc-500">
+                        Image Preview
+                    </div>
+                )}
+            </div>
+        </div>
+    </>
+);
+
+// Les cellules secondaires : titre, stack, tagline.
+const CompactCell = ({ project, locale }: { project: Project; locale: Locale }) => (
+    <div className="p-6 h-full flex flex-col justify-between relative z-10">
+        <div>
+            <div className="flex items-center justify-between gap-3">
+                <h3 className="font-bold text-zinc-800 dark:text-zinc-100">{project.title}</h3>
+                <span className="bg-zinc-200 dark:bg-zinc-800 text-xs px-2 py-1 rounded-md border border-zinc-300 dark:border-zinc-700 shrink-0">
+                    {project.stack[0]}
+                </span>
+            </div>
+            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">
+                {t(project.tagline, locale)}
+            </p>
+        </div>
+        <span className="text-xs text-zinc-400 dark:text-zinc-500">{project.year}</span>
+    </div>
+);
+
+function Projects({ locale = defaultLocale }: { locale?: Locale }) {
     const ref = useRef(null);
     const isInViewDiscoverProject = useInView(ref, { once: true });
+    const projects = landingProjects(BENTO_SPANS.length);
+
     return (
         <div className="mt-24" id="projects">
             <h1 className="text-4xl">Projects</h1>
@@ -62,76 +131,18 @@ function Projects() {
                     viewport={{ once: true, margin: "-100px" }} // L'animation se joue une seule fois
                     className="grid grid-cols-1 md:grid-cols-3 auto-rows-[12rem] gap-4 max-w-4xl w-full px-4"
                 >
-                    {/* --- PROJET 1 : POKESTIM --- */}
-                    <BentoCard className="md:col-span-2 md:row-span-2 group cursor-pointer hover:border-zinc-400 dark:hover:border-zinc-600">
-                        {/* Background gradient animé au survol via CSS group-hover */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-fuchsia-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                        <div className="p-6 h-full flex flex-col justify-between relative z-10">
-                            {/* badge */}
-                            <div>
-                                <div className="flex items-center justify-between">
-                                    <h3 className="md:text-2xl text-xl font-bold text-zinc-800 dark:text-zinc-100">Pokestim</h3>
-                                    <span className="bg-zinc-200 dark:bg-zinc-800 text-xs px-2 py-1 rounded-md border border-zinc-300 dark:border-zinc-700">
-                                        React Native (Expo) + Python
-                                    </span>
-                                </div>
-                                <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-                                    A basic multiplatform application to estimate Pokémon items price by market trends.
-                                </p>
-                            </div>
-                            {/* Placeholder Image */}
-                            <div className="w-full h-full bg-zinc-200 dark:bg-zinc-800 rounded-lg mt-4 border border-dashed border-zinc-400 dark:border-zinc-700 flex items-center justify-center text-sm text-zinc-500">
-                                Image Preview
-                            </div>
-                        </div>
-                    </BentoCard>
-
-                    {/* --- PROJET 2 --- */}
-                    <BentoCard className="md:col-span-1 md:row-span-1 p-6 text-center cursor-pointer hover:bg-zinc-200 dark:hover:bg-zinc-800/50">
-                        <div className="p-1 h-full flex flex-col justify-between relative z-10">
-                            {/* badge */}
-
-                            <div>
-                                <div className="flex items-center justify-between">
-                                    <h3 className="font-bold text-zinc-800 dark:text-zinc-100">Labubu Fork</h3>
-                                    <span className="bg-zinc-200 dark:bg-zinc-800 text-xs px-2 py-1 rounded-md border border-zinc-300 dark:border-zinc-700">
-                                        PHP/Symfony
-                                    </span>
-                                </div>
-                                <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-                                    A fork of Labubu WebSite to train with Symfony framework and PHP language (Stimulus,ORM,Twig...).
-                                </p>
-                            </div>
-                        </div>
-                    </BentoCard>
-
-                    {/* --- PROJET 3 --- */}
-                    <BentoCard className="md:col-span-1 md:row-span-1 p-6 relative overflow-hidden">
-                        <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-200">Java (Learning)</h3>
-                        <motion.div
-                            className="absolute -bottom-2 -right-2 text-6xl opacity-20"
-                            animate={{ rotate: [0, 10, 0] }} // Infinite rotation animation
-                            transition={{ repeat: Infinity, duration: 2 }}
+                    {projects.map((project, index) => (
+                        <BentoCard
+                            key={project.slug}
+                            className={`${BENTO_SPANS[index]} group cursor-pointer hover:border-zinc-400 dark:hover:border-zinc-600`}
                         >
-                            ☕
-                        </motion.div>
-                        <p>Learning Java programming language and concepts. But I need more practice and projects to improve.</p>
-                    </BentoCard>
-
-                    {/* --- PROJET 4 --- */}
-                    <BentoCard className="md:col-span-3 md:row-span-1 row-span-2 md:flex-row items-center p-6 gap-6">
-                        <div className="bg-gray-500/10 p-2 rounded-lg border border-gray-500/20">
-                            <span className="text-orange-600 dark:text-orange-400 font-bold">Bootstrap + NodeJS</span>
-                        </div>
-                        <div>
-                            <h3 className="text-lg font-bold">VPS Hosting Panel - Business to Consumer</h3>
-                            <p className="text-sm text-zinc-500">2023</p>
-                            <p>I created from scratch an entire web hosting panel to manage VPS servers for small businesses using Proxmox API backed with NodeJS. </p>
-                            <p>User could buy cheap VPS hosting plans with cryptocurrency and manage their servers easily through the panel.</p>
-                        </div>
-                    </BentoCard>
-
+                            {index === 0 ? (
+                                <HeroCell project={project} locale={locale} />
+                            ) : (
+                                <CompactCell project={project} locale={locale} />
+                            )}
+                        </BentoCard>
+                    ))}
                 </motion.div>
             </div>
             {/* Projects button */}
@@ -143,7 +154,7 @@ function Projects() {
                     transition={{ duration: 1.2 }}
                     className="text-2xl font-bold tracking-tighter cursor-pointer"
                 >
-                    <Link href="#" className="underline decoration-white underline-offset-8 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Discover more of my projects </Link>
+                    <Link href="/projects" className="underline decoration-white underline-offset-8 bg-linear-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Discover more of my projects </Link>
                 </motion.h2>
             </div>
         </div>
