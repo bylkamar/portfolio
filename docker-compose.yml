@@ -1,9 +1,17 @@
 services:
   portfolio:
-    build: .
+    build:
+      context: .
+      dockerfile: dockerfile
+      args:
+        # Doit valoir l'URL publique finale : elle part dans le sitemap,
+        # les canonical et les balises Open Graph, figés au build.
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://aitchikhoune-amer.fr}
+    image: portfolio:latest
     restart: always
     networks:
       - internal
+    # Jamais exposé sur l'IP publique : seul le reverse proxy tape dessus.
     ports:
       - "127.0.0.1:3000:3000"
 
