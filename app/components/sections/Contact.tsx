@@ -1,10 +1,16 @@
 import Link from "next/link";
 import { FcGoogle } from "react-icons/fc";
 import { FiLinkedin } from "react-icons/fi";
-function Contact() {
+
+import { defaultLocale, t, type Locale } from "../../i18n/config";
+import { dictionaries } from "../../i18n/dictionaries";
+
+function Contact({ locale = defaultLocale }: { locale?: Locale }) {
     return (
         <div id="contact" className="mt-24">
-            <h1 className="text-4xl mb-8 text-center">Contact Me</h1>
+            <h1 className="text-4xl mb-8 text-center">
+                {t(dictionaries.contact.heading, locale)}
+            </h1>
             <div className="grid grid-cols-2 col-span-2 gap-4">
                 <Link href={"mailto:amer.aitchikhoune@gmail.com"} target="_blank" className="border-0 border-amber-50 py-2 px-4 flex justify-center items-center">
                     <FcGoogle className="ml-2 text-white text-2xl pr-2" />

@@ -127,6 +127,69 @@ export const PROJECTS: Project[] = [
     year: 2025,
     stack: ["Java"],
   },
+  {
+    slug: "maya-api",
+    title: "Maya API",
+    tagline: {
+      fr: "API REST pour le projet flutter de deuxième année de BTS SIO.",
+      en: "REST API for the second-year Flutter project of the BTS SIO.",
+    },
+    description: {
+      fr: "API Rest faite avec PHP (Symfony) pour le projet Flutter de deuxième année de BTS SIO. Elle permet de gérer les utilisateurs, les articles et prix",
+      en: "REST API built with PHP (Symfony) for the second-year Flutter project of the BTS SIO. It allows managing users, articles, and prices.",
+    },
+    category: "web",
+    context: "school",
+    status: "archived",
+    year: 2023,
+    stack: ["PHP", "Symfony"],
+    links: {
+      repo: "https://github.com/bylkamar/maya-api",
+    },
+  },
+  {
+    slug: "maya-flutter",
+    title: "La Ferme - Maya",
+    tagline: {
+      fr: "Application Flutter pour le projet de deuxième année de BTS SIO. Projet de gestion d'une ferme. Utilisé pour l'examen final.",
+      en: "Flutter application for the second-year BTS SIO project. Farm management project. Used for the final exam.",
+    },
+    description: {
+      fr: "Application Flutter pour le projet de deuxième année de BTS SIO. Projet de gestion d'une ferme. Utilisé pour l'examen final.",
+      en: "Flutter application for the second-year BTS SIO project. Farm management project. Used for the final exam.",
+    },
+    category: "mobile",
+    context: "school",
+    status: "archived",
+    year: 2023,
+    stack: ["Flutter", "Dart"],
+    links: {
+      repo: "https://github.com/bylkamar/maya",
+    },
+  },
+  {
+    slug: "ecocars",
+    title: "EcoCars",
+    tagline: {
+      fr: "Site web de gestion de garage automobile. Projet destiner à un client professionnel.",
+      en: "Website for managing a car garage. Project intended for a professional client.",
+    },
+    description: {
+      fr: "Site web de gestion de garage automobile. Projet destiner à un client professionnel.",
+      en: "Website for managing a car garage. Project intended for a professional client.",
+    },
+    category: "web",
+    context: "pro",
+    status: "archived",
+    year: 2023,
+    stack: ["Next.JS", "TypeScript", "TailwindCSS", "PostgreSQL"],
+    links: {
+      note: {
+        fr: "Code privé",
+        en: "Private code",
+      },
+    },
+  },
 ];
 
 /** Liste dédupliquée des stacks réellement présentes — alimente les chips de filtre. */

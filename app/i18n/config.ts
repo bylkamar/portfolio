@@ -1,10 +1,9 @@
 /**
  * Point de branchement i18n.
  *
- * Lot 1 : tout le contenu passe par `t()`, mais personne ne fournit encore de
- * locale — le rendu se fait donc en `defaultLocale`.
- * Lot 2 : les pages passeront la locale issue de `params`, et rien d'autre ne
- * bougera dans les composants.
+ * Tout le contenu localisé passe par `t()`. Les pages lisent la locale depuis le
+ * segment de route `[locale]` et la transmettent en props aux composants — pas de
+ * contexte React, donc rien de tout ceci n'atterrit dans le bundle client.
  *
  * Règle à tenir : jamais de `field.fr` / `field.en` en dur dans le JSX.
  */
@@ -17,11 +16,16 @@ export type Locale = (typeof locales)[number];
 export type Localized = Record<Locale, string>;
 
 /**
- * Reste "en" tant que le lot 2 n'est pas livré, pour que la page projets soit
- * cohérente avec le reste du site (encore intégralement anglophone).
- * À basculer sur "fr" avec le middleware du lot 2.
+ * Locale servie quand `Accept-Language` ne tranche pas, et repli des composants
+ * auxquels on n'a pas passé de locale.
  */
-export const defaultLocale: Locale = "en";
+export const defaultLocale: Locale = "fr";
+
+/** Nom de la langue dans sa propre langue, pour le sélecteur. */
+export const LOCALE_LABELS: Record<Locale, string> = {
+  fr: "FR",
+  en: "EN",
+};
 
 export function t(field: Localized, locale: Locale = defaultLocale): string {
   return field[locale];

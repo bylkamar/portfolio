@@ -3,16 +3,16 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 
-import Footer from "../components/ui/Footer";
-import { NavBar } from "../components/ui/NavBar";
-import { FeaturedProjectCard } from "../components/projects/FeaturedProjectCard";
-import { ProjectRow } from "../components/projects/ProjectRow";
+import Footer from "../ui/Footer";
+import { NavBar } from "../ui/NavBar";
+import { FeaturedProjectCard } from "./FeaturedProjectCard";
+import { ProjectRow } from "./ProjectRow";
 import {
   EMPTY_FILTERS,
   ProjectFilters,
   hasActiveFilters,
   type Filters,
-} from "../components/projects/ProjectFilters";
+} from "./ProjectFilters";
 import {
   allCategories,
   allContexts,
@@ -20,11 +20,11 @@ import {
   allStacks,
   featured,
   type Project,
-} from "../data/projects";
-import { dictionaries } from "../i18n/dictionaries";
-import { defaultLocale, t } from "../i18n/config";
+} from "../../data/projects";
+import { dictionaries } from "../../i18n/dictionaries";
+import { defaultLocale, t, type Locale } from "../../i18n/config";
 
-function matches(project: Project, filters: Filters, locale = defaultLocale): boolean {
+function matches(project: Project, filters: Filters, locale: Locale): boolean {
   const query = filters.query.trim().toLowerCase();
 
   const matchesQuery =
@@ -49,8 +49,7 @@ function matches(project: Project, filters: Filters, locale = defaultLocale): bo
   return matchesQuery && matchesCategory && matchesContext && matchesStack;
 }
 
-function ProjectsPage() {
-  const locale = defaultLocale;
+export function ProjectsPageContent({ locale = defaultLocale }: { locale?: Locale }) {
   const d = dictionaries.projects;
 
   const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
@@ -69,7 +68,7 @@ function ProjectsPage() {
 
   return (
     <main className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black relative scroll-smooth">
-      <NavBar />
+      <NavBar locale={locale} />
 
       <section className="w-full">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 pb-16 pt-28">
@@ -164,9 +163,9 @@ function ProjectsPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer locale={locale} />
     </main>
   );
 }
 
-export default ProjectsPage;
+export default ProjectsPageContent;

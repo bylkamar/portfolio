@@ -3,7 +3,11 @@
 import { motion } from "motion/react";
 import { FiArrowUpRight } from "react-icons/fi";
 
-import { CATEGORY_LABELS, STATUS_LABELS, type Project } from "../../data/projects";
+import {
+  CATEGORY_LABELS,
+  STATUS_LABELS,
+  type Project,
+} from "../../data/projects";
 import { defaultLocale, t, type Locale } from "../../i18n/config";
 
 type ProjectRowProps = {
@@ -19,7 +23,11 @@ type ProjectRowProps = {
  * plusieurs dizaines de projets, là où des cartes de taille égale écraseraient
  * la différence entre un produit complet et un script de 40 lignes.
  */
-export function ProjectRow({ project, index, locale = defaultLocale }: ProjectRowProps) {
+export function ProjectRow({
+  project,
+  index,
+  locale = defaultLocale,
+}: ProjectRowProps) {
   const href = project.links?.demo ?? project.links?.repo;
 
   const content = (
@@ -76,7 +84,6 @@ export function ProjectRow({ project, index, locale = defaultLocale }: ProjectRo
       exit={{ opacity: 0, y: -8 }}
       transition={{
         duration: 0.25,
-        // Plafonné : sans ça le 40e projet attendrait plus d'une seconde.
         delay: Math.min(index, 8) * 0.03,
       }}
       className="border-b border-zinc-200 last:border-b-0 dark:border-zinc-800"

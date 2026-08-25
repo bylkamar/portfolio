@@ -19,7 +19,12 @@ import {
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
-function Stacks() {
+
+import { defaultLocale, t, type Locale } from "../../i18n/config";
+import { dictionaries } from "../../i18n/dictionaries";
+
+function Stacks({ locale = defaultLocale }: { locale?: Locale }) {
+    const d = dictionaries.stacks;
     const myStacks = ["React", "TypeScript", "Node.js", "Next.js", "Tailwind CSS", "Python", "PHP/Symfony", "Java", "Docker", "SQL"];
     const [index, setIndex] = useState(0);
 
@@ -59,7 +64,7 @@ function Stacks() {
         <div>
             <div className="w-full flex flex-col justify-center items-center mt-28 mb-12">
                 <h2 className="text-center text-4xl font-bold tracking-tighter md:leading-[4rem]">
-                    I have experimented with technologies like
+                    {t(d.heading, locale)}
                 </h2>
                 {/* FIX: On donne une taille fixe (w-full h-20) au conteneur RELATIF.
                Cela empêche le layout shift (sautillement) quand le texte change.
@@ -83,14 +88,14 @@ function Stacks() {
 
             <div>
                 <div>
-                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2"> Languages</h2>
+                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">{t(d.languages, locale)}</h2>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-4">
                         {languages.map((tech, idx) => (
                             <TechItem key={idx} tech={tech} />
                         ))}
                     </div>
-                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2"> Technologies</h2>
+                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">{t(d.technologies, locale)}</h2>
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         {technologies.map((tech, idx) => (
                             <TechItem key={idx} tech={tech} />

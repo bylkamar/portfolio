@@ -4,8 +4,17 @@ import LoadingCircleSpinner from "./LoadingSpinner";
 import TypingEffect from "./Text/Typing";
 import { useEffect, useState } from "react";
 
+import { defaultLocale, t, type Locale } from "../../i18n/config";
+import { dictionaries } from "../../i18n/dictionaries";
 
-function Overlay({ children }: { children: React.ReactNode }) {
+
+function Overlay({
+    children,
+    locale = defaultLocale,
+}: {
+    children: React.ReactNode;
+    locale?: Locale;
+}) {
     const [showOverlay, setShowOverlay] = useState(true);
 
     useEffect(() => {
@@ -31,7 +40,7 @@ function Overlay({ children }: { children: React.ReactNode }) {
                             <LoadingCircleSpinner />
                         </motion.div>
                         <span className="mt-4 text-white text-sm opacity-70">
-                            Developer and future pentester?
+                            {t(dictionaries.overlay.tagline, locale)}
                         </span>
                     </motion.div>
                 )}
