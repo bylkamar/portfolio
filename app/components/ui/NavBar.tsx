@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { RESUME_PATH } from "../../data/resume";
 import {
   LOCALE_LABELS,
   defaultLocale,
@@ -50,6 +51,17 @@ export function NavBar({ locale = defaultLocale }: { locale?: Locale }) {
               {item.label}
             </Link>
           ))}
+
+          {/* Le CV est le lien le plus recherché par un recruteur : il sort du
+              lot du reste de la nav, et pointe vers le PDF dans un nouvel onglet. */}
+          <a
+            href={RESUME_PATH}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-zinc-300 px-3 py-1 text-sm font-medium text-zinc-900 transition hover:bg-zinc-900 hover:text-white dark:border-white/25 dark:text-white dark:hover:bg-white dark:hover:text-zinc-900"
+          >
+            {t(d.resume, locale)}
+          </a>
         </div>
 
         <div className="flex items-center gap-2">
@@ -91,6 +103,16 @@ export function NavBar({ locale = defaultLocale }: { locale?: Locale }) {
                   {item.label}
                 </Link>
               ))}
+
+              <a
+                href={RESUME_PATH}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="mt-1 border-t border-zinc-200/70 pt-3 text-sm font-medium text-zinc-900 dark:border-white/15 dark:text-white"
+              >
+                {t(d.resume, locale)}
+              </a>
             </div>
           </motion.div>
         )}

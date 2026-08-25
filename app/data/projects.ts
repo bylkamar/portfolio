@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     context: "personal",
     status: "archived",
     year: 2023,
-    stack: ["Node.js", "Bootstrap", "Proxmox"],
+    stack: ["Node.js", "Bootstrap", "Proxmox", "Cloudflare"],
     tags: ["security", "self-hosted", "API", "payments"],
     featured: true,
     links: {
@@ -189,6 +189,80 @@ export const PROJECTS: Project[] = [
         en: "Private code",
       },
     },
+  },
+  {
+    slug: "sae-detection-vehicules",
+    title: "SAÉ — Détection de véhicules",
+    tagline: {
+      fr: "Détection de véhicules en temps réel, exposée dans une app multiplateforme.",
+      en: "Real-time vehicle detection, served through a cross-platform app.",
+    },
+    description: {
+      fr: "Détection de véhicules par modèle de vision (TensorFlow/PyTorch), exposée dans une application Kotlin Multiplatform avec cache local et backend MySQL (SQLAlchemy). Architecture temps réel à faible latence, pipeline CI/CD GitLab avec build automatique IPA/APK, tests unitaires et lint.",
+      en: "Vehicle detection driven by a vision model (TensorFlow/PyTorch), served through a Kotlin Multiplatform app with local caching and a MySQL (SQLAlchemy) backend. Low-latency real-time architecture, GitLab CI/CD pipeline with automated IPA/APK builds, unit tests and linting.",
+    },
+    category: "mobile",
+    context: "school",
+    status: "archived",
+    year: 2026,
+    stack: [
+      "Kotlin Multiplatform",
+      "TensorFlow",
+      "PyTorch",
+      "Python",
+      "MySQL",
+      "GitLab CI/CD",
+    ],
+    tags: ["AI", "real-time", "CI/CD"],
+    featured: true,
+    links: {
+      note: {
+        fr: "Projet universitaire",
+        en: "University project",
+      },
+    },
+  },
+  {
+    slug: "discord-monitoring-bot",
+    title: "Bot Discord — Monitoring",
+    tagline: {
+      fr: "Surveillance temps réel de produits Amazon et de publications Instagram.",
+      en: "Real-time monitoring of Amazon listings and Instagram posts.",
+    },
+    description: {
+      fr: "Bot Discord de surveillance multi-plateformes : suivi en temps réel de produits Amazon et de publications Instagram, avec alertes automatiques poussées dans les salons Discord.",
+      en: "A multi-platform monitoring Discord bot: real-time tracking of Amazon listings and Instagram posts, with automated alerts pushed to Discord channels.",
+    },
+    category: "automation",
+    context: "personal",
+    status: "shipped",
+    year: 2024,
+    stack: ["Python", "Discord API"],
+    tags: ["monitoring", "scraping", "alerts"],
+    links: {
+      note: {
+        fr: "Code privé",
+        en: "Private code",
+      },
+    },
+  },
+  {
+    slug: "price-comparator-extension",
+    title: "Comparateur de prix",
+    tagline: {
+      fr: "Extension navigateur comparant les prix neuf et occasion sur les fiches produits.",
+      en: "Browser extension comparing new and second-hand prices on product pages.",
+    },
+    description: {
+      fr: "Extension de navigateur qui compare en temps réel les prix neuf et occasion directement sur les fiches produits, sans quitter la page consultée.",
+      en: "A browser extension that compares new and second-hand prices in real time, right on the product page, without leaving it.",
+    },
+    category: "automation",
+    context: "personal",
+    status: "archived",
+    year: 2025,
+    stack: ["TypeScript", "WebExtension"],
+    tags: ["browser-extension", "scraping"],
   },
 ];
 

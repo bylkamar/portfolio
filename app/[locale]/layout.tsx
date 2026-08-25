@@ -3,8 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 
 import "../globals.css";
-import { isLocale, locales, t } from "../i18n/config";
+import { defaultLocale, isLocale, locales, t, type Locale } from "../i18n/config";
 import { dictionaries } from "../i18n/dictionaries";
+import { AUTHOR_EMAIL, AUTHOR_NAME, SITE_URL, SOCIAL_LINKS } from "../site";
 
 /**
  * Root layout du site.
@@ -24,6 +25,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/** Open Graph veut un code complet (`fr_FR`), pas le code court des routes. */
+const OG_LOCALES: Record<Locale, string> = {
+  fr: "fr_FR",
+  en: "en_US",
+};
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
@@ -40,11 +47,40 @@ export async function generateMetadata({
   const description = t(dictionaries.meta.description, locale);
 
   return {
-    title: { default: title, template: "%s · Amer AIT CHIKHOUNE" },
+    // Sans `metadataBase`, Next resout les URLs Open Graph sur localhost.
+    metadataBase: new URL(SITE_URL),
+    title: { default: title, template: `%s · ${AUTHOR_NAME}` },
     description,
-    openGraph: { title, description, type: "website", locale },
+    authors: [{ name: AUTHOR_NAME, url: SITE_URL }],
+    creator: AUTHOR_NAME,
     alternates: {
-      languages: Object.fromEntries(locales.map((l) => [l, `/${l}`])),
+      canonical: `/${locale}`,
+      languages: {
+        ...Object.fromEntries(locales.map((l) => [l, `/${l}`])),
+        // Sert de repli aux visiteurs dont la langue ne correspond a aucune version.
+        "x-default": `/${defaultLocale}`,
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      type: "profile",
+      url: `/${locale}`,
+      siteName: AUTHOR_NAME,
+      locale: OG_LOCALES[locale],
+      alternateLocale: locales
+        .filter((l) => l !== locale)
+        .map((l) => OG_LOCALES[l]),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large" },
     },
   };
 }
@@ -60,11 +96,49 @@ export default async function LocaleLayout({
   // Une locale inconnue dans l'URL doit donner un 404, pas une page à moitié traduite.
   if (!isLocale(locale)) notFound();
 
+  /* Donnees structurees : c'est ce qui permet a Google de relier le site a une
+     personne nommee, plutot qu'a une page de texte anonyme. */
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: AUTHOR_NAME,
+    url: `${SITE_URL}/${locale}`,
+    email: `mailto:${AUTHOR_EMAIL}`,
+    jobTitle: t(dictionaries.meta.jobTitle, locale),
+    description: t(dictionaries.meta.description, locale),
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "IUT de Metz",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Metz",
+        addressCountry: "FR",
+      },
+    },
+    knowsAbout: [
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "PHP",
+      "Symfony",
+      "Python",
+      "Kotlin Multiplatform",
+      "Docker",
+      "Linux",
+      "Cybersécurité",
+    ],
+    sameAs: SOCIAL_LINKS,
+  };
+
   return (
     <html lang={locale}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         {children}
       </body>
     </html>

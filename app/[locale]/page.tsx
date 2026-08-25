@@ -16,7 +16,7 @@ export default async function Home({
   const locale = isLocale(raw) ? raw : defaultLocale;
 
   return (
-    <main className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black relative scroll-smooth">
+    <main id="home" className="flex flex-col min-h-screen bg-zinc-50 font-sans dark:bg-black relative scroll-smooth">
       <Overlay locale={locale}>
         <NavBar locale={locale} />
 

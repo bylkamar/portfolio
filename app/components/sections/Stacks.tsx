@@ -12,53 +12,122 @@ import {
     SiPhp,
     SiSymfony,
     SiDocker,
-    SiPostgresql,
+    SiMysql,
     SiMongodb,
-    SiRubyonrails,
-    SiGo
+    SiGo,
+    SiKotlin,
+    SiExpo,
+    SiLinux,
+    SiProxmox,
+    SiVmware,
+    SiGitlab,
+    SiNginx,
+    SiBurpsuite,
+    SiFlutter,
+    SiDart,
+    SiPostgresql,
+    SiGit,
+    SiVercel,
+    SiCloudflare,
+    SiPostman,
+    SiSwagger,
+    SiTensorflow,
+    SiPytorch,
 } from "react-icons/si";
-import { FaJava } from "react-icons/fa";
+import { FaJava, FaBug, FaTheaterMasks, FaSyringe } from "react-icons/fa";
+import { VscTerminalPowershell } from "react-icons/vsc";
 import { IconType } from "react-icons/lib";
 
 import { defaultLocale, t, type Locale } from "../../i18n/config";
 import { dictionaries } from "../../i18n/dictionaries";
 
+type Tech = { name: string; icon: IconType; color: string };
+
+/* Les logos monochromes (Next, Symfony, Expo, Linux) doivent suivre le thème :
+   un `text-white` en dur les rend invisibles sur le fond clair. */
+const MONO = "text-zinc-900 dark:text-white";
+
+const languages: Tech[] = [
+    { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
+    { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
+    { name: "Python", icon: SiPython, color: "text-blue-400" },
+    { name: "Java", icon: FaJava, color: "text-red-500" },
+    { name: "PHP", icon: SiPhp, color: "text-indigo-400" },
+    { name: "GoLang", icon: SiGo, color: "text-cyan-500" },
+    { name: "Kotlin", icon: SiKotlin, color: "text-purple-500" },
+    { name: "Dart", icon: SiDart, color: "text-sky-500" },
+];
+
+const frameworks: Tech[] = [
+    { name: "React", icon: SiReact, color: "text-cyan-400" },
+    { name: "Next.js", icon: SiNextdotjs, color: MONO },
+    { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-cyan-500" },
+    { name: "React Native (Expo)", icon: SiExpo, color: MONO },
+    { name: "Flutter", icon: SiFlutter, color: "text-sky-400" },
+    { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
+    { name: "Symfony", icon: SiSymfony, color: MONO },
+    { name: "MySQL", icon: SiMysql, color: "text-blue-600" },
+    { name: "PostgreSQL", icon: SiPostgresql, color: "text-blue-300" },
+    { name: "NoSQL", icon: SiMongodb, color: "text-green-400" },
+];
+
+const infrastructure: Tech[] = [
+    { name: "Git", icon: SiGit, color: "text-orange-600" },
+    { name: "Linux", icon: SiLinux, color: MONO },
+    { name: "Docker", icon: SiDocker, color: "text-blue-500" },
+    { name: "Proxmox", icon: SiProxmox, color: "text-orange-500" },
+    { name: "VMware", icon: SiVmware, color: "text-zinc-500" },
+    { name: "GitLab CI/CD", icon: SiGitlab, color: "text-orange-500" },
+    { name: "Nginx", icon: SiNginx, color: "text-green-600" },
+    { name: "PowerShell", icon: VscTerminalPowershell, color: "text-blue-400" },
+    { name: "Cloudflare", icon: SiCloudflare, color: "text-orange-400" },
+    { name: "Vercel", icon: SiVercel, color: MONO },
+    { name: "Postman", icon: SiPostman, color: "text-orange-500" },
+    { name: "Swagger", icon: SiSwagger, color: "text-green-500" },
+];
+
+const security: Tech[] = [
+    { name: "Burp Suite", icon: SiBurpsuite, color: "text-orange-500" },
+    /* Frida n'a pas de logo dans react-icons : la seringue rend bien l'idée
+       d'injection dans un processus. */
+    { name: "Frida", icon: FaSyringe, color: "text-purple-400" },
+    { name: "CTF / Bug Bounty", icon: FaBug, color: "text-red-400" },
+    { name: "Playwright", icon: FaTheaterMasks, color: "text-green-500" },
+    { name: "TensorFlow", icon: SiTensorflow, color: "text-orange-400" },
+    { name: "PyTorch", icon: SiPytorch, color: "text-red-500" },
+];
+
+/** Défile sous le titre : un échantillon des stacks, pas la liste complète. */
+const myStacks = [
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Tailwind CSS",
+    "Python",
+    "PHP/Symfony",
+    "Kotlin",
+    "GoLang",
+    "Docker",
+    "Linux",
+];
+
 function Stacks({ locale = defaultLocale }: { locale?: Locale }) {
     const d = dictionaries.stacks;
-    const myStacks = ["React", "TypeScript", "Node.js", "Next.js", "Tailwind CSS", "Python", "PHP/Symfony", "Java", "Docker", "SQL"];
     const [index, setIndex] = useState(0);
+
+    const groups: { title: string; items: Tech[] }[] = [
+        { title: t(d.languages, locale), items: languages },
+        { title: t(d.frameworks, locale), items: frameworks },
+        { title: t(d.infrastructure, locale), items: infrastructure },
+        { title: t(d.security, locale), items: security },
+    ];
 
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((prevIndex) => (prevIndex + 1) % myStacks.length);
-        }, 3000); // Réduit à 3s pour tester plus vite
+        }, 3000);
         return () => clearInterval(interval);
-    }, [myStacks.length]);
-
-
-    const languages = [
-        { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
-        { name: "TypeScript", icon: SiTypescript, color: "text-blue-500" },
-        { name: "Python", icon: SiPython, color: "text-blue-400" },
-        { name: "Java", icon: FaJava, color: "text-red-500" },
-        { name: "PHP", icon: SiPhp, color: "text-indigo-400" },
-        { name: "GoLang", icon: SiGo, color: "text-blue-400" },
-        { name: "Ruby", icon: SiRubyonrails, color: "text-red-400" },
-
-
-    ];
-
-    const technologies = [
-        { name: "React", icon: SiReact, color: "text-cyan-400" },
-        { name: "Next.js", icon: SiNextdotjs, color: "text-white dark:text-white" }, // Next est noir/blanc
-        { name: "Node.js", icon: SiNodedotjs, color: "text-green-500" },
-        { name: "Symfony", icon: SiSymfony, color: "text-white dark:text-white" },
-        { name: "Tailwind", icon: SiTailwindcss, color: "text-cyan-500" },
-        { name: "Docker", icon: SiDocker, color: "text-blue-500" },
-        { name: "SQL", icon: SiPostgresql, color: "text-blue-300" },
-        { name: "NoSQL", icon: SiMongodb, color: "text-green-400" },
-    ];
-
+    }, []);
 
     return (
         <div>
@@ -86,39 +155,28 @@ function Stacks({ locale = defaultLocale }: { locale?: Locale }) {
                 </div>
             </div>
 
-            <div>
-                <div>
-                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">{t(d.languages, locale)}</h2>
-
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-4">
-                        {languages.map((tech, idx) => (
-                            <TechItem key={idx} tech={tech} />
-                        ))}
-                    </div>
-                    <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">{t(d.technologies, locale)}</h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                        {technologies.map((tech, idx) => (
-                            <TechItem key={idx} tech={tech} />
+            {groups.map((group) => (
+                <div key={group.title}>
+                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-2">
+                        {group.title}
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-10">
+                        {group.items.map((tech) => (
+                            <TechItem key={tech.name} tech={tech} />
                         ))}
                     </div>
                 </div>
-            </div>
+            ))}
         </div>
     );
 }
 
-const TechItem = ({ tech }: {
-    tech: {
-        name: string;
-        icon: IconType;
-        color: string;
-    }
-}) => {
+const TechItem = ({ tech }: { tech: Tech }) => {
     return (
         <div className="flex items-center gap-3 p-3 rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors group">
             {/* L'icône */}
             <div className={`text-xl ${tech.color} group-hover:scale-110 transition-transform`}>
-                <tech.icon />
+                <tech.icon aria-hidden />
             </div>
             {/* Le nom */}
             <span className="font-medium text-sm text-zinc-700 dark:text-zinc-300">

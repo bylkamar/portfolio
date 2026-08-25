@@ -139,8 +139,8 @@ function Projects({ locale = defaultLocale }: { locale?: Locale }) {
   const d = dictionaries.projects;
 
   return (
-    <div className="mt-24" id="projects">
-      <h1 className="text-4xl">{t(d.sectionHeading, locale)}</h1>
+    <div className="scroll-mt-28 mt-24" id="projects">
+      <h2 className="text-4xl">{t(d.sectionHeading, locale)}</h2>
       <div className="w-full pt-10 flex justify-center">
         <motion.div
           variants={gridVariants} // On lie à l'animation parent
@@ -165,7 +165,7 @@ function Projects({ locale = defaultLocale }: { locale?: Locale }) {
       </div>
       {/* Projects button */}
       <div className="pt-2 justify-center flex md:justify-start">
-        <motion.h2
+        <motion.div
           ref={ref}
           initial={{ filter: "blur(20px)", opacity: 0 }}
           animate={
@@ -180,7 +180,7 @@ function Projects({ locale = defaultLocale }: { locale?: Locale }) {
           >
             {t(d.discoverMore, locale)}
           </Link>
-        </motion.h2>
+        </motion.div>
       </div>
     </div>
   );

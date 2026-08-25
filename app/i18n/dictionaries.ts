@@ -17,6 +17,11 @@ const meta = {
     fr: "Développeur full-stack, BUT Informatique à l'IUT de Metz. Applications web, mobile, automatisation et infrastructure.",
     en: "Full-stack developer, BUT Informatique at IUT de Metz. Web apps, mobile, automation and infrastructure.",
   },
+  /** Repris tel quel dans le `jobTitle` des données structurées. */
+  jobTitle: {
+    fr: "Développeur full-stack",
+    en: "Full-stack developer",
+  },
 } satisfies Record<string, Localized>;
 
 const nav = {
@@ -24,6 +29,7 @@ const nav = {
   about: { fr: "À propos", en: "About" },
   projects: { fr: "Projets", en: "Projects" },
   contact: { fr: "Contact", en: "Contact" },
+  resume: { fr: "CV", en: "Resume" },
   toggleMenu: { fr: "Ouvrir le menu", en: "Toggle menu" },
   switchLanguage: { fr: "Changer de langue", en: "Switch language" },
 } satisfies Record<string, Localized>;
@@ -37,8 +43,8 @@ const overlay = {
 
 const about = {
   heading: {
-    fr: "Étudiant en développement web à l'IUT de Metz",
-    en: "Student in Web Development at IUT of Metz",
+    fr: "Amer AIT CHIKHOUNE, étudiant en BUT Informatique à l'IUT de Metz",
+    en: "Amer AIT CHIKHOUNE, BUT Informatique student at IUT de Metz",
   },
   intro: {
     fr: "Bonjour, je m'appelle AIT CHIKHOUNE Amer, j'étudie l'informatique en France et je suis actuellement ouvert à toute opportunité de stage ou d'alternance.",
@@ -54,6 +60,16 @@ const about = {
     en: "I enjoy working on projects I can fully invest myself in (which I really like), creating automation scripts.",
   },
   resume: { fr: "Voir mon CV", en: "View my resumé" },
+  resumeDownload: { fr: "Télécharger", en: "Download" },
+  /** Libellés lus par les lecteurs d'écran : « Voir » / « Télécharger » seuls ne disent pas quoi. */
+  resumeViewAria: {
+    fr: "Voir mon CV au format PDF (nouvel onglet)",
+    en: "View my resumé as a PDF (new tab)",
+  },
+  resumeDownloadAria: {
+    fr: "Télécharger mon CV au format PDF",
+    en: "Download my resumé as a PDF",
+  },
 } satisfies Record<string, Localized>;
 
 const stacks = {
@@ -62,7 +78,15 @@ const stacks = {
     en: "I have experimented with technologies like",
   },
   languages: { fr: "Langages", en: "Languages" },
-  technologies: { fr: "Technologies", en: "Technologies" },
+  frameworks: {
+    fr: "Frameworks & bases de données",
+    en: "Frameworks & databases",
+  },
+  infrastructure: {
+    fr: "Systèmes & DevOps",
+    en: "Systems & DevOps",
+  },
+  security: { fr: "Cybersécurité & IA", en: "Cybersecurity & AI" },
 } satisfies Record<string, Localized>;
 
 const contact = {

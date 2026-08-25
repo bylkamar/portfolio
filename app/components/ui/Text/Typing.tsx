@@ -7,7 +7,7 @@ export function TypingEffect({ text = 'Typing Effect' }: { text: string }) {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     return (
-        <h2
+        <div
             ref={ref}
             className="text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]"
         >
@@ -21,7 +21,7 @@ export function TypingEffect({ text = 'Typing Effect' }: { text: string }) {
                     {letter}
                 </motion.span>
             ))}
-        </h2>
+        </div>
     );
 }
 
